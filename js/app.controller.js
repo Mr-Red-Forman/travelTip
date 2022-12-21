@@ -23,9 +23,9 @@ function getPosition() {
     })
 }
 
-function onAddMarker() {
+function onAddMarker(lat = 32.0749831, lng = 34.9120554) {
     console.log('Adding a marker')
-    mapService.addMarker({ lat: 32.0749831, lng: 34.9120554 })
+    mapService.addMarker({ lat, lng })
 }
 
 function onGetLocs() {
@@ -39,10 +39,12 @@ function onGetLocs() {
 function onGetUserPos() {
     getPosition()
         .then(pos => {
-            console.log('User position is:', pos.coords)
+            const lat = pos.coords.latitude
+            const lng = pos.coords.longitude
             document.querySelector('.user-pos').innerText =
-                `Latitude: ${pos.coords.latitude} - Longitude: ${pos.coords.longitude}`
-            mapService.initMap(pos.coords.latitude, pos.coords.longitude)
+                `Latitude: ${lat} - Longitude: ${lng}`
+            mapService.panTo(lat, lng)
+            onAddMarker(lat, lng)
         })
         .catch(err => {
             console.log('err!!!', err)
