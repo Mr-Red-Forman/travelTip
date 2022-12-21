@@ -8,8 +8,8 @@ export const mapService = {
 
 // Var that is used throughout this Module (not global)
 var gMap
-// const API_KEY='AIzaSyDngUH5uVBss_ed5jvIm6K5XzCOPT2A3b8'
-const API_KEY='AIzaSyDlJhhGSEoJSVDmKYlrZQtN1GfHq6XpdQM'
+const API_KEY='AIzaSyDngUH5uVBss_ed5jvIm6K5XzCOPT2A3b8'
+// const API_KEY='AIzaSyDlJhhGSEoJSVDmKYlrZQtN1GfHq6XpdQM'
 
 function initMap(lat = 32.0749831, lng = 34.9120554) {
     console.log('InitMap')
@@ -44,8 +44,8 @@ function _connectGoogleApi() {
     if (window.google) return Promise.resolve()
     const API_KEY = '' //TODO: Enter your API Key
     var elGoogleApi = document.createElement('script')
-    elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`
-    // elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDlJhhGSEoJSVDmKYlrZQtN1GfHq6XpdQM`
+    // elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`
+    elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDnVQtoPjz1sJCgj8BE1oCKG7D3sAMIFP0`
     elGoogleApi.async = true
     document.body.append(elGoogleApi)
 
