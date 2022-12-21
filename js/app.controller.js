@@ -41,8 +41,10 @@ function onGetUserPos() {
         .then(pos => {
             console.log('User position is:', pos.coords)
             document.querySelector('.user-pos').innerText =
-                `Latitude: ${pos.coords.latitude} - Longitude: ${pos.coords.longitude}`
+                // `Latitude: ${pos.coords.latitude} - Longitude: ${pos.coords.longitude}`
+                `${pos.coords.latitude} - ${pos.coords.longitude}`
             mapService.initMap(pos.coords.latitude, pos.coords.longitude)
+            document.querySelector(".myLocationpopup").classList.toggle("open")
         })
         .catch(err => {
             console.log('err!!!', err)
