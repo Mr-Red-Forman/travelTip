@@ -1,0 +1,22 @@
+header, footer{
+    background-color: var(--clr-header-footer);  
+    height: 7vh;
+    display: flex;
+    align-items: center;
+}
+
+header h1{
+    width: 80vw;
+    margin: 0 auto;
+    padding: 0 0.5em;
+    font-family: RubikSprayPaint;
+    font-weight: 500;
+    background-color: var(--clr-header-footer);
+    font-size: 1.2em;
+  
+}
+
+
+footer{
+    justify-content: center; 
+}

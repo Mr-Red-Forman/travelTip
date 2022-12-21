@@ -4,22 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
     <title>TravelTip</title>
 </head>
 
 <body>
-    <h1>TravelTip Starter</h1>
-    <div id="map" style="width: 100%; height: 400px;"></div>
-    <button onclick="onAddMarker()" class="btn-add-marker">Add Marker Speific Location</button>
-    <button onclick="onGetUserPos()" class="btn-user-pos">My place</button>
-    <button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
-    <button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button>
+    <header>
+        <h1>TravelTip Starter</h1>
+    </header>
+    <section class="loactionFinder main-layout">
+        <section class="serachOption">
+            <input type="search" class="searchLocInp" name="searchLocBtn" placeholder="Enter a place in the world">
+            <button for="searchLocInp" onclick="onUserClick()">GO</button>
+        </section>
+        <button onclick="onGetUserPos()" class="btn-user-pos">My Location</button>
+        <div class="myLocationpopup">
+            <p>You're at: <span class="user-pos"></span></p>
+            <p>Locations:
+            <pre class="locs"></pre>
+            </p>
+        </div>
+    </section>
+    <main class="main-layout mainContiner">
+        <div class="mapShow">
+            <div id="map" style="width: 100%; height: 400px;"></div>
+            <div class="mapBtn">
+                <button onclick="onAddMarker()" class="btn-add-marker">Add Marker Speific Location</button>
+                <button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
+                <button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button>
+            </div>
+        </div>
+        <div class="weather">
 
-    <p>You're at: <span class="user-pos"></span></p>
-    <p>Locations:
-    <pre class="locs"></pre>
-    </p>
+        </div>
+        <div class="locationTable">
+            <table>
+                <thead class="thread-container"></thead>
+                <tbody class="locations-table"></tbody>
+            </table>
 
+        </div>
+    </main>
+
+    <footer>
+        <small>CopyRigth Yossi Nahari & Yarden Zeron</small>
+    </footer>
 
     <script type="module" src="js/app.controller.js"></script>
 </body>

@@ -1,0 +1,100 @@
+.mainContiner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.5em;
+    max-height: 76vh;
+    overflow-y: hidden;
+
+}
+
+.mainContiner>* {
+    min-width: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.mapShow {
+    grid-area: 1/2/3/3;
+    padding: 0.5em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 8fr 1fr;
+}
+
+#map {
+    grid-area: 1/1/2/-1;
+    max-height: 76vh;
+
+}
+
+.mapBtn {
+    grid-area: 2/1/3/-1;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 0.5em;
+}
+
+.weather {
+    grid-area: 1/1/2/2;
+    padding: 0.5em;
+    background-color: aqua;
+}
+
+.locationTable {
+    grid-area: 2/1/3/2;
+    padding: 0.5em;
+    background-color: rgba(237, 235, 237, 0.84);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(9, 3em);
+    overflow-y: scroll;
+    border-bottom: ;
+}
+
+.locationTable::-webkit-scrollbar {
+    width: 1em;
+}
+
+.locationTable::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.locationTable::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+@media (max-width: 500px) {
+
+
+    .mapShow {
+        grid-area: 1/1/2/3;
+        padding: 0.5em;
+        max-height: 38vh;
+        display: block;
+
+    }
+
+    #map {
+        grid-area: 1/1/2/-1;
+        max-height: 30vh;
+    }
+
+
+    .weather {
+        grid-area: 2/1/3/2;
+        padding: 0.5em;
+        background-color: aqua;
+        height: 38vh;
+    }
+
+    .locationTable {
+        grid-area: 2/2/3/3;
+        padding: 0.5em;
+
+    }
+
+}

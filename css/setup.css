@@ -1,0 +1,43 @@
+/* VARS */
+:root{
+
+    --clr-header-footer:#a8e16f;
+    --clr-hover-on:#040a2c;
+    --clr-canvas-bgc:#1a1f3f;
+    --clr-body:#d0d3eb;
+
+    /* ---scale-l:1.5em
+    ---scale-m:1em
+    ---scale-s:0.5em */
+}
+
+/* BASE */
+
+/* typegraphy */
+
+@font-face{
+    font-family: RubikSprayPaint;
+    src:url("../Design/fonts/RubikSprayPaint-Regular.ttf")
+}
+@font-face{
+    font-family: Inconsolata;
+    src:url("../Design/fonts/Inconsolata-VariableFont_wdth\,wght.ttf")
+}
+
+
+/* SETUP */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    /* background-color: #ffff; */
+}
+
+h1,h2,h3,h4,h5,h6,p,a{
+    font-size: 1em;
+    font-family:'Times New Roman', Times, serif ;
+}
+
+body{
+   overflow-y: hidden;
+}

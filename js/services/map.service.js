@@ -21,6 +21,11 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
             })
             gMap.addListener("click", placeController.onAddPlace)
             console.log('Map!', gMap)
+            google.maps.event.addDomListener(window, "resize", function() {
+            var center = gMap.getCenter();
+            google.maps.event.trigger(gMap, "resize");
+            gMap.setCenter(center); 
+            });
         })
 }
 

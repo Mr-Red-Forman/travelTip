@@ -7,10 +7,11 @@ export const placeService = {
     query
 }
 
-const LOC_KEY = 'locDB'
+const LOC_KEY = 'locB'
 
 let gPlaceId = 1000
 let gCurrLocsList
+
 
 
 _createLocs()

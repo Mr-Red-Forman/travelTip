@@ -1,6 +1,7 @@
 import { locService } from './services/loc.service.js'
 import { mapService } from './services/map.service.js'
 import { placeController } from './place.controller.js'
+import { placeService } from './services/place.service.js'
 
 window.onload = onInit
 window.onAddMarker = onAddMarker
@@ -12,7 +13,7 @@ function onInit() {
     mapService.initMap()
         .then(() => {
             console.log('Map is ready')
-            placeController.renderMarkers()
+            placeController.renderAll()
         })
         .catch(() => console.log('Error: cannot init map'))
 }
@@ -46,7 +47,9 @@ function onGetUserPos() {
             document.querySelector('.user-pos').innerText =
                 `Latitude: ${lat} - Longitude: ${lng}`
             mapService.panTo(lat, lng)
-            mapService.addMarker({ lat, lng })
+            mapService.addMarker({ lat, lng }, 'My location!')
+            placeService.createPlace('My location', lat, lng, true)
+            placeController.renderAll()
         })
         .catch(err => {
             console.log('err!!!', err)
