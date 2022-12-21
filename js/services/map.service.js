@@ -4,9 +4,10 @@ export const mapService = {
     panTo
 }
 
-
 // Var that is used throughout this Module (not global)
 var gMap
+// To-do: add a variable to set place id
+const gPlaceId = 1000
 
 function initMap(lat = 32.0749831, lng = 34.9120554) {
     console.log('InitMap')
@@ -18,8 +19,36 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
                 center: { lat, lng },
                 zoom: 15
             })
+            // To-do: add a line to start looking for click on map
+            gMap.addListener("click", onAddPlace)
             console.log('Map!', gMap)
         })
+}
+
+// To-do: create this func to save place that user click on it in map
+function onAddPlace(ev) {
+    const loc = {
+        id: gPlaceId++,
+        name: prompt('enter place name'),
+        lat: ev.latLng.lat(),
+        lng: ev.latLng.lng(),
+        createdAt: createFormatedDate(Date.now()),
+        updatedAt: createFormatedDate(Date.now())
+    }
+    addPlace(loc)
+    renderPlaceList()
+    renderMarkers(gMap)
+}
+
+// To-do: funct that return a normal date pattern
+function createFormatedDate(date) {
+    const formatedDate = new Intl.DateTimeFormat('en').format(date)
+    const options = {
+        hour: '2-digit',
+        minute: '2-digit'
+    }
+    const formatedTime = new Intl.DateTimeFormat('he', options).format(date)
+    return formatedDate + ', ' + formatedTime
 }
 
 function addMarker(loc) {
@@ -39,7 +68,7 @@ function panTo(lat, lng) {
 
 function _connectGoogleApi() {
     if (window.google) return Promise.resolve()
-    const API_KEY = '' //TODO: Enter your API Key
+    const API_KEY = 'AIzaSyAL7cxv_dpFekLBBNomHJhgqCo4RkLjmCQ' //TODO: Enter your API Key
     var elGoogleApi = document.createElement('script')
     elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`
     elGoogleApi.async = true
