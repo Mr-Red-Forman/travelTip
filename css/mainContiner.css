@@ -1,0 +1,24 @@
+.mainContiner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: 1fr 1fr;
+    gap:0.5em;
+}
+
+.mapShow{
+    grid-area: 1/2/3/3;
+    padding: 0.5em;
+}
+
+.weather{
+    grid-area: 1/1/2/2;
+    padding: 0.5em;
+    background-color: aqua;
+}
+
+.locationTable{
+    grid-area: 2/1/3/2;
+    padding: 0.5em;
+    background-color: rgb(255, 0, 225);
+
+}

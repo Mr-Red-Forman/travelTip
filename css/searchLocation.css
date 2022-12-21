@@ -1,0 +1,47 @@
+.loactionFinder{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.loactionFinder button{
+    border-radius: 2em;
+}
+
+
+.btn-user-pos{
+    display: block;
+}
+
+.myLocationpopup{
+    display: none;
+}
+
+.serachOption{
+    margin-bottom: 0.5em;
+
+}
+
+input, input:focus{
+    border: 0;
+    outline: 0;
+    margin-right: 1em;
+    width: 15em;
+    border: 1px solid black;
+}
+
+.myLocationpopup{
+    overflow: hidden;
+    display: block;
+    position: relative;
+    font-size: 0.7em;
+    background-color: rgb(67 163 140 / 31%);
+    box-shadow: 0 0 0 0;
+    font-family:Inconsolata ;
+    padding: 0.5em 1em;
+    margin-top: 0.5em;
+    border-radius: 10%;
+}
