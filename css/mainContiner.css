@@ -1,6 +1,6 @@
 .mainContiner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(auto-fit(200px, 1fr));
     grid-template-rows: 1fr 1fr;
     gap: 0.5em;
     max-height: 76vh;
@@ -49,8 +49,9 @@
     background-color: rgba(237, 235, 237, 0.84);
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows:  3em;
     overflow-y: scroll;
+    gap: 0.5em;
+
 }
 
 .locationTable::-webkit-scrollbar {

@@ -3,10 +3,13 @@
 .infoRow {
     position: relative;
     display: inline-flex;
-    /* border-bottom: 1px dotted black; If you want dots under the hoverable text */
-    height: fit-content;
+    height: inherit;
     align-items: center;
     justify-content: space-between;
+    /* border: 1px solid black; */
+    padding: 0 0.5em;
+    border-radius: 2em;
+    box-shadow: inset -1px 0px 10px 0px gray;
   }
 
 .locationBtn{
