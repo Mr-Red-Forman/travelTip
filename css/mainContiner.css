@@ -49,9 +49,8 @@
     background-color: rgba(237, 235, 237, 0.84);
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(9, 3em);
+    grid-template-rows:  3em;
     overflow-y: scroll;
-    border-bottom: ;
 }
 
 .locationTable::-webkit-scrollbar {
