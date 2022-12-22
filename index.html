@@ -14,8 +14,8 @@
     </header>
     <section class="loactionFinder main-layout">
         <section class="serachOption">
-            <input type="search" class="searchLocInp" name="searchLocBtn" placeholder="Enter a place in the world" >
-            <button for="searchLocInp">GO</button>
+            <input type="search" class="searchLocInp" name="searchLocBtn" placeholder="Enter a place in the world">
+            <button for="searchLocInp" onclick="onUserClick()">GO</button>
         </section>
         <button onclick="onGetUserPos()" class="btn-user-pos">My Location</button>
         <div class="myLocationpopup">
@@ -38,6 +38,10 @@
 
         </div>
         <div class="locationTable">
+            <table>
+                <thead class="thread-container"></thead>
+                <tbody class="locations-table"></tbody>
+            </table>
 
         </div>
     </main>

@@ -1,5 +1,7 @@
 import { locService } from './services/loc.service.js'
 import { mapService } from './services/map.service.js'
+import { placeController } from './place.controller.js'
+import { placeService } from './services/place.service.js'
 
 window.onload = onInit
 window.onAddMarker = onAddMarker
@@ -11,6 +13,7 @@ function onInit() {
     mapService.initMap()
         .then(() => {
             console.log('Map is ready')
+            placeController.renderAll()
         })
         .catch(() => console.log('Error: cannot init map'))
 }
@@ -23,9 +26,9 @@ function getPosition() {
     })
 }
 
-function onAddMarker() {
+function onAddMarker(lat = 32.0749831, lng = 34.9120554) {
     console.log('Adding a marker')
-    mapService.addMarker({ lat: 32.0749831, lng: 34.9120554 })
+    mapService.addMarker({ lat, lng }, prompt('enter place name'))
 }
 
 function onGetLocs() {
@@ -39,12 +42,14 @@ function onGetLocs() {
 function onGetUserPos() {
     getPosition()
         .then(pos => {
-            console.log('User position is:', pos.coords)
+            const lat = pos.coords.latitude
+            const lng = pos.coords.longitude
             document.querySelector('.user-pos').innerText =
-                // `Latitude: ${pos.coords.latitude} - Longitude: ${pos.coords.longitude}`
-                `${pos.coords.latitude} - ${pos.coords.longitude}`
-            mapService.initMap(pos.coords.latitude, pos.coords.longitude)
-            document.querySelector(".myLocationpopup").classList.toggle("open")
+                `Latitude: ${lat} - Longitude: ${lng}`
+            mapService.panTo(lat, lng)
+            mapService.addMarker({ lat, lng }, 'My location!')
+            placeService.createPlace('My location', lat, lng, true)
+            placeController.renderAll()
         })
         .catch(err => {
             console.log('err!!!', err)
